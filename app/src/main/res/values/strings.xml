@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Examenpracticofinal</string>
+
+
+    <string-array name="Tipo_de_unidad">
+        <item>Guerrero</item>
+        <item>Arquero</item>
+        <item>Explorador</item>
+        <item>Berserker</item>
+    </string-array>
+
+    <string-array name="tipos_unidad">
+        <item>Guerrero</item>
+        <item>Arquero</item>
+        <item>Explorador</item>
+        <item>Berserker</item>
+    </string-array>
+
+
+    <string name="hint_identificador">Introduce el identificador</string>
+    <string name="label_tipo_unidad">Tipo de unidad:</string>
+    <string name="check_antorcha">Lleva antorcha</string>
+    <string name="label_equipamiento">Equipamiento adicional:</string>
+    <string name="radio_armadura">Armadura pesada</string>
+    <string name="radio_escudo">Escudo de madera</string>
+    <string name="desc_boton_enviar">Enviar datos de la unidad</string>
 </resources>
