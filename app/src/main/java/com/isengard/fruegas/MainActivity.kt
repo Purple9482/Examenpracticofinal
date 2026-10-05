@@ -17,7 +17,7 @@ import android.widget.RadioGroup
 import android.widget.ImageButton
 
 
-class seguna_pantalla : AppCompatActivity() {
+class main : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,24 +68,15 @@ class seguna_pantalla : AppCompatActivity() {
                 ).show()
             }
         }
-
-        val cbSigilo = findViewById<CheckBox>(R.id.cbSigilo)
-        cbSigilo.setOnCheckedChangeListener { buttonView, isChecked ->
+        val antorcha = findViewById<CheckBox>(R.id.antorcha)
+        antorcha.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                Log.d("Habilidad", "Has adquirido la habilidad de sigilo")
-            }
-        }
-        val cbEspada = findViewById<CheckBox>(R.id.cbEspada)
-        cbEspada.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                Log.d("Habilidad", "Has adquirido la habilidad de combate con espada")
+                Log.d("Habilidad", "Has adquirido la antorcha")
 
-//--------------------------------------------------------------------------------------------------
                 //Boton registro
                 val btnRegistrar = findViewById<ImageButton>(R.id.botonguardar)
 
-                // 2. Función lambda: recibe nombre, raza, facción y habilidades,
-                //    y escribe todo en Logcat (no devuelve nada, por eso Unit)
+                // 2. Función lambda: recibe nombre, raza, facción y habilidades para el logcat
 
                 val registrarEnLogcat: (String, String, String, List<String>) -> Unit =
                     { nombre, raza, faccion, habilidades ->
@@ -107,8 +98,7 @@ class seguna_pantalla : AppCompatActivity() {
                     }
 
                     val habilidades = mutableListOf<String>()
-                    if (cbSigilo.isChecked) habilidades.add("Sigilo")
-                    if (cbEspada.isChecked) habilidades.add("Combate con Espada")
+                    if (antorcha.isChecked) habilidades.add("Lleva antorcha")
 
                     // 3b. Texto explicacion cosas
                     val resumen = "Héroe: $nombre\nRaza: $raza\nFacción: $faccion\n" +
@@ -123,9 +113,36 @@ class seguna_pantalla : AppCompatActivity() {
 
                     // 3d. Lo registramos en Logcat llamando a la lambda (lo ve el programador)
                     registrarEnLogcat(nombre, raza, faccion, habilidades)
+
+
+
                 }
             }
-
         }
+    }
+    //los logs de la app
+    override fun onStart() {
+        super.onStart()
+        Log.d("FraguasIsengard", "onStart: Las fraguas se encienden")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("FraguasIsengard", "onResume: Los capataces vuelven al trabajo")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("FraguasIsengard", "onPause: Saruman detiene la producción temporalmente")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("FraguasIsengard", "onStop: Las fraguas quedan en la sombra de Orthanc")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("FraguasIsengard", "onDestroy: Las fraguas de Isengard son derribadas")
     }
 }
